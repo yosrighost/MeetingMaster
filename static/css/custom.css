@@ -1,0 +1,150 @@
+:root {
+    --tunisian-red: #d62828;
+    --tunisian-orange: #f77f00;
+    --tunisian-yellow: #fcbf49;
+    --tunisian-terracotta: #c8553d;
+    --tunisian-blue: #003049;
+    --tunisian-light: #eae2b7;
+}
+
+/* Custom styles for Tunisian theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+}
+
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.8rem;
+    color: var(--tunisian-orange) !important;
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--tunisian-orange) !important;
+}
+
+.btn-primary {
+    background-color: var(--tunisian-orange);
+    border-color: var(--tunisian-orange);
+}
+
+.btn-primary:hover {
+    background-color: var(--tunisian-terracotta);
+    border-color: var(--tunisian-terracotta);
+}
+
+.hero-section {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+}
+
+.section-title {
+    position: relative;
+    color: var(--tunisian-yellow);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 3px;
+    background-color: var(--tunisian-orange);
+}
+
+.menu-item {
+    border-left: 3px solid var(--tunisian-orange);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateX(5px);
+}
+
+.gallery-img {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.testimonial {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--tunisian-yellow);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: var(--bs-dark);
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.daily-special {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--tunisian-red);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.daily-special:hover {
+    transform: translateX(5px);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .gallery-img {
+        height: 180px;
+    }
+}

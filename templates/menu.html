@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu - Médina Saveurs{% endblock %}
+
+{% block content %}
+<!-- Menu Banner -->
+<section class="py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/gf523c4dfccd8636e8e934d9bdfae9248448e623241a674d05b80d74328d1d2e4f7e795844422d138fcaecf6f2995b27fde9849a1bc34d1dce89d67674e5ee261_1280.jpg'); background-size: cover; background-position: center;">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4 fade-in">Our Menu</h1>
+        <p class="lead fade-in">Discover the authentic flavors of Tunisian street food</p>
+    </div>
+</section>
+
+<div class="container my-5">
+    <!-- Menu Navigation -->
+    <div class="mb-4 fade-in">
+        <ul class="nav nav-pills justify-content-center mb-4">
+            {% for category in menu.categories %}
+            <li class="nav-item m-1">
+                <a class="nav-link" href="#{{ category.name|lower|replace(' ', '-') }}">{{ category.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Menu Categories -->
+    {% for category in menu.categories %}
+    <section id="{{ category.name|lower|replace(' ', '-') }}" class="mb-5 fade-in">
+        <h2 class="section-title">{{ category.name }}</h2>
+        <p class="mb-4">{{ category.description }}</p>
+        
+        <div class="row">
+            {% for item in category.items %}
+            <div class="col-md-6 mb-4">
+                <div class="menu-item card bg-dark h-100">
+                    <div class="row g-0">
+                        {% if item.image %}
+                        <div class="col-md-4">
+                            <div class="gallery-img h-100" style="background-image: url('{{ item.image }}'); border-radius: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></div>
+                        </div>
+                        <div class="col-md-8">
+                        {% else %}
+                        <div class="col-12">
+                        {% endif %}
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">{{ item.name }}</h5>
+                                    <span class="badge bg-warning text-dark">{{ item.price }} TND</span>
+                                </div>
+                                <p class="card-text">{{ item.description }}</p>
+                                {% if item.daily_special %}
+                                <small class="text-warning">
+                                    <i class="fas fa-star me-1"></i> Daily special on {{ item.daily_special|capitalize }}s
+                                </small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- Call to Action -->
+    <section class="text-center py-5 fade-in" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/g998dbb59610ba183d5889b75ee2fe843e3273ea7e2e188e29d1f99c8da862be9b6f618f6da076d0bd161955faf76e7bdd095281f5d792161f1d64546fb388ca8_1280.jpg'); background-size: cover; background-position: center; border-radius: 10px;">
+        <h2 class="mb-4">Found something you like?</h2>
+        <p class="lead mb-4">Place your order now and enjoy the authentic taste of Tunisian cuisine!</p>
+        <a href="{{ url_for('order') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-shopping-cart me-2"></i> Order Now
+        </a>
+    </section>
+</div>
+
+{% block extra_js %}
+<script>
+    // Smooth scroll for menu navigation
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-pills .nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Set active class
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Activate first nav pill by default
+        if (navLinks.length > 0) {
+            navLinks[0].classList.add('active');
+        }
+    });
+</script>
+{% endblock %}
+{% endblock %}

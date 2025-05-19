@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}Daily Special - Médina Saveurs{% endblock %}
+
+{% block content %}
+<!-- Daily Menu Banner -->
+<section class="py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/gd93b0293da7d3768a5fd4ecb976a484fe8849498bf6caf2932d8ee03d2954c3acd0ce8615e37dc930d0df5d3b868871bfc1a5c8eb92d847e17a8ea0c6117a2e5_1280.jpg'); background-size: cover; background-position: center;">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4 fade-in">Today's Special</h1>
+        <p class="lead fade-in">Our chef's special selections for {{ today|capitalize }}</p>
+    </div>
+</section>
+
+<div class="container my-5">
+    {% if daily_specials %}
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto fade-in">
+                <div class="card bg-dark border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="mb-0 text-center">
+                            <i class="fas fa-star me-2"></i> Chef's Recommendations for {{ today|capitalize }}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        {% for special in daily_specials %}
+                            <div class="daily-special mb-4 {% if not loop.last %}border-bottom pb-4{% endif %}">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h4 class="text-warning">{{ special.name }}</h4>
+                                        <p class="mb-1">{{ special.description }}</p>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <span class="badge bg-warning text-dark me-3">{{ special.price }} TND</span>
+                                            <small class="text-muted">From our {{ special.category }} menu</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3 mt-md-0 text-md-end">
+                                        <a href="{{ url_for('order') }}" class="btn btn-outline-light">
+                                            <i class="fas fa-shopping-cart me-2"></i> Order Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-center">
+                            <p class="text-muted mb-0">Daily specials are available while supplies last</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-5 fade-in">
+            <div class="col-lg-10 mx-auto">
+                <div class="p-4 rounded" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/g7cc9123871f0941e9184febe6e8c2dbd1c0a71a328969148b56ef7b60c954c113a519cd691cc5e970380381dfe1963bdbc40c7bc80a79a5c97102dea8e8b770d_1280.jpg'); background-size: cover; background-position: center;">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 mb-3 mb-md-0">
+                            <h3>Want to try our daily specials?</h3>
+                            <p class="mb-0">Place your order now or visit us today to enjoy these delicious dishes!</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <a href="{{ url_for('order') }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-shopping-cart me-2"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center fade-in">
+                <i class="fas fa-utensils fa-4x mb-4 text-warning"></i>
+                <h3>No daily specials available for {{ today|capitalize }}</h3>
+                <p class="lead">Please check back tomorrow or view our regular menu for delicious options!</p>
+                <a href="{{ url_for('menu') }}" class="btn btn-primary mt-3">
+                    <i class="fas fa-book-open me-2"></i> View Regular Menu
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    
+    <!-- Weekly Schedule -->
+    <section class="mb-5 fade-in">
+        <h2 class="section-title text-center mb-4">Weekly Specials Schedule</h2>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Featured Dishes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="{% if today == 'monday' %}table-warning text-dark{% endif %}">
+                                <td>Monday</td>
+                                <td>Tunisian Fricassée & Brick à l'œuf</td>
+                            </tr>
+                            <tr class="{% if today == 'tuesday' %}table-warning text-dark{% endif %}">
+                                <td>Tuesday</td>
+                                <td>Makloub</td>
+                            </tr>
+                            <tr class="{% if today == 'wednesday' %}table-warning text-dark{% endif %}">
+                                <td>Wednesday</td>
+                                <td>Chapati</td>
+                            </tr>
+                            <tr class="{% if today == 'thursday' %}table-warning text-dark{% endif %}">
+                                <td>Thursday</td>
+                                <td>Kefta Meshwi</td>
+                            </tr>
+                            <tr class="{% if today == 'friday' %}table-warning text-dark{% endif %}">
+                                <td>Friday</td>
+                                <td>Brochette Chicken</td>
+                            </tr>
+                            <tr class="{% if today == 'saturday' %}table-warning text-dark{% endif %}">
+                                <td>Saturday</td>
+                                <td>Couscous Royal</td>
+                            </tr>
+                            <tr class="{% if today == 'sunday' %}table-warning text-dark{% endif %}">
+                                <td>Sunday</td>
+                                <td>Lablabi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

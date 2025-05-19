@@ -1,0 +1,117 @@
+{
+  "categories": [
+    {
+      "name": "Sandwiches",
+      "description": "Authentic Tunisian street sandwiches",
+      "items": [
+        {
+          "name": "Tunisian Fricassée",
+          "description": "Deep-fried bread stuffed with tuna, olives, boiled egg, harissa, and potato",
+          "price": 6.5,
+          "image": "https://pixabay.com/get/gb71922b48f8025ce6d8338bbd9162069a28aa2ed1741d47a4547b8ddf3e2ba9c18b67a47acc1c955b3b8d4c0dc9538511389e5fb2eb6bf5d5875a2f5afde9e47_1280.jpg",
+          "daily_special": "monday"
+        },
+        {
+          "name": "Makloub",
+          "description": "Folded sandwich with grilled meat, vegetables, and harissa sauce",
+          "price": 7.0,
+          "image": "https://pixabay.com/get/gb9f1e06749d0e4f8339a7cfa0dc83d0d90522f86023cd4bd7118b590bb5f221409274bfa9d3d4178d8cb3c45d743140aa913d10a6aefb44f3013f1b4488d7ad0_1280.jpg",
+          "daily_special": "tuesday"
+        },
+        {
+          "name": "Chapati",
+          "description": "Flatbread filled with tuna, cheese, eggs, and olives",
+          "price": 5.5,
+          "image": "https://pixabay.com/get/g998dbb59610ba183d5889b75ee2fe843e3273ea7e2e188e29d1f99c8da862be9b6f618f6da076d0bd161955faf76e7bdd095281f5d792161f1d64546fb388ca8_1280.jpg",
+          "daily_special": "wednesday"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Specialties",
+      "description": "Perfectly grilled meats and vegetables",
+      "items": [
+        {
+          "name": "Kefta Meshwi",
+          "description": "Grilled minced beef or lamb skewers seasoned with herbs and spices",
+          "price": 11.0,
+          "image": "https://pixabay.com/get/gd93b0293da7d3768a5fd4ecb976a484fe8849498bf6caf2932d8ee03d2954c3acd0ce8615e37dc930d0df5d3b868871bfc1a5c8eb92d847e17a8ea0c6117a2e5_1280.jpg",
+          "daily_special": "thursday"
+        },
+        {
+          "name": "Brochette Chicken",
+          "description": "Marinated chicken skewers with vegetables",
+          "price": 10.0,
+          "image": "https://pixabay.com/get/g48480101e84236b9d18afe20f8e0bc08e4f8772b95b388a6f91ff957d059a1e13c79fedbd75a41b94bf55fb27b36bb674ff29a9ba39abca2cccd6e98dff277c3_1280.jpg",
+          "daily_special": "friday"
+        }
+      ]
+    },
+    {
+      "name": "Traditional Dishes",
+      "description": "Authentic Tunisian cuisine",
+      "items": [
+        {
+          "name": "Couscous Royal",
+          "description": "Steamed semolina topped with vegetables and choice of meat in rich broth",
+          "price": 13.5,
+          "image": "https://pixabay.com/get/g7cc9123871f0941e9184febe6e8c2dbd1c0a71a328969148b56ef7b60c954c113a519cd691cc5e970380381dfe1963bdbc40c7bc80a79a5c97102dea8e8b770d_1280.jpg",
+          "daily_special": "saturday"
+        },
+        {
+          "name": "Lablabi",
+          "description": "Chickpea soup with bread, garlic, and cumin",
+          "price": 8.0,
+          "image": "https://pixabay.com/get/gce4faae38e01cdc23e2ebc87c11652a1fbbeffd52cd1cb1984d87268db3201eca9270a4c303194f2eb471574f3438bce8bd1d8bc6158f5946f84774dc7d81691_1280.jpg",
+          "daily_special": "sunday"
+        },
+        {
+          "name": "Brick à l'œuf",
+          "description": "Thin pastry filled with egg, tuna, and parsley, then fried",
+          "price": 5.0,
+          "image": "https://pixabay.com/get/g1039a236c3e14968a2375b05137bff787b7939015ef7d1fd689b19ae43f018e4f32cd28ad3dfc43ece2b5924bebdec9d87bffef787fbdaae020e2d3de2c7ca6c_1280.jpg",
+          "daily_special": "monday"
+        }
+      ]
+    },
+    {
+      "name": "Sides",
+      "description": "Perfect accompaniments",
+      "items": [
+        {
+          "name": "Tunisian Salad",
+          "description": "Fresh tomatoes, cucumbers, onions, and olives with olive oil dressing",
+          "price": 4.5,
+          "image": "https://pixabay.com/get/g68e87a9dd213f822abe0073cb585544bfe4a061c43a4ae57d1caf7cd5c25fa8452be8530f8b877041fc39a7f2bd25f44f9083a463c66c45e147ffa837eb55bcf_1280.jpg"
+        },
+        {
+          "name": "Mechouia Salad",
+          "description": "Grilled peppers, tomatoes, and onions with olive oil and tuna",
+          "price": 5.5,
+          "image": "https://pixabay.com/get/gf523c4dfccd8636e8e934d9bdfae9248448e623241a674d05b80d74328d1d2e4f7e795844422d138fcaecf6f2995b27fde9849a1bc34d1dce89d67674e5ee261_1280.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "description": "Refreshing drinks",
+      "items": [
+        {
+          "name": "Mint Tea",
+          "description": "Traditional Tunisian mint tea with pine nuts",
+          "price": 3.0
+        },
+        {
+          "name": "Citronnade",
+          "description": "Homemade lemonade with fresh mint",
+          "price": 4.0
+        },
+        {
+          "name": "Boukha",
+          "description": "Traditional Tunisian fig liqueur (alcoholic)",
+          "price": 5.0
+        }
+      ]
+    }
+  ]
+}

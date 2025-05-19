@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('https://pixabay.com/get/gb71922b48f8025ce6d8338bbd9162069a28aa2ed1741d47a4547b8ddf3e2ba9c18b67a47acc1c955b3b8d4c0dc9538511389e5fb2eb6bf5d5875a2f5afde9e47_1280.jpg');">
+    <div class="hero-overlay">
+        <div class="hero-content fade-in">
+            <h1 class="display-3 fw-bold mb-4">Médina Saveurs</h1>
+            <h2 class="mb-5">Authentic Tunisian Street Food</h2>
+            <a href="{{ url_for('order') }}" class="btn btn-primary btn-lg">Order Now</a>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <!-- About Section -->
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0 fade-in">
+                <h2 class="section-title">Our Story</h2>
+                <p class="lead">Experience the vibrant flavors of Tunisia in the heart of the city.</p>
+                <p>
+                    Médina Saveurs brings the authentic taste of Tunisian street food directly to you. Our recipes are passed down 
+                    through generations, using traditional methods and the freshest ingredients to create 
+                    delicious dishes that transport you straight to the bustling markets of Tunis.
+                </p>
+                <p>
+                    Founded by Chef Karim in 2015, our restaurant combines the warmth of Mediterranean 
+                    hospitality with the exciting flavors of Tunisian cuisine. Every dish tells a story of our 
+                    rich culinary heritage.
+                </p>
+                <a href="{{ url_for('menu') }}" class="btn btn-outline-light mt-3">
+                    <i class="fas fa-utensils me-2"></i> Discover Our Menu
+                </a>
+            </div>
+            <div class="col-lg-6 fade-in">
+                <div class="row">
+                    <div class="col-6 mb-4">
+                        <div class="gallery-img h-100" style="background-image: url('https://pixabay.com/get/gd5e1010c707d465a2e24320881f196075babeef557337d875bfc6bc1995080c587a7e98543e63f6bb8239b42b235f861432aae01e869f264c9fc80987c9d2405_1280.jpg');"></div>
+                    </div>
+                    <div class="col-6 mb-4">
+                        <div class="gallery-img h-100" style="background-image: url('https://pixabay.com/get/g2f39a17ebca2f7dd473d1a644f62e513cb6b0df70f84ed8a17fec03e0594459be8a19c739790d8183f7be48c8ffa772c35884a4caada172431a5cec0a4f77e58_1280.jpg');"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="gallery-img" style="background-image: url('https://pixabay.com/get/g5a63715cb23b823252b9ada9bf1fdb7aca0d36e929269065a306e19748dc5714f0d66fa443b6213934681b42a0244ff00bc0beb3836ba2098e8adf2fa4ce66cd_1280.jpg'); height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">Featured Dishes</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="card bg-dark h-100">
+                    <div class="gallery-img" style="background-image: url('https://pixabay.com/get/gd3e747cccea20864d52db04e1351f831de19c623a8a23710aa944ba45192839e38c2f85b12a9f7f2e3a3e94d27177e87ba86ddda7dcc28fab3353ad70db291f1_1280.jpg'); height: 200px;"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Tunisian Fricassée</h4>
+                        <p class="card-text">Deep-fried bread stuffed with tuna, olives, boiled egg, harissa, and potato.</p>
+                        <a href="{{ url_for('menu') }}" class="btn btn-outline-light btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="card bg-dark h-100">
+                    <div class="gallery-img" style="background-image: url('https://pixabay.com/get/g7cc9123871f0941e9184febe6e8c2dbd1c0a71a328969148b56ef7b60c954c113a519cd691cc5e970380381dfe1963bdbc40c7bc80a79a5c97102dea8e8b770d_1280.jpg'); height: 200px;"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Couscous Royal</h4>
+                        <p class="card-text">Steamed semolina topped with vegetables and choice of meat in rich broth.</p>
+                        <a href="{{ url_for('menu') }}" class="btn btn-outline-light btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="card bg-dark h-100">
+                    <div class="gallery-img" style="background-image: url('https://pixabay.com/get/g8f0fc5ab402db7f31fc4e6ced136a83436a5c5b982fe67aee349578a9ea794bb93f2291d4802ed163c56fb0aed8fc82019f8e9dffa435d47333baa9451073889_1280.jpg'); height: 200px;"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Makloub</h4>
+                        <p class="card-text">Folded sandwich with grilled meat, vegetables, and harissa sauce.</p>
+                        <a href="{{ url_for('menu') }}" class="btn btn-outline-light btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Special -->
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0 fade-in">
+                <h2 class="section-title">Today's Special</h2>
+                <div class="daily-special">
+                    <h4 class="text-warning">Discover our Chef's recommendation for today!</h4>
+                    <p>Every day, our chef prepares a special dish that showcases the best of Tunisian cuisine. Come in early, as our daily specials often sell out quickly!</p>
+                    <a href="{{ url_for('daily_menu') }}" class="btn btn-primary">
+                        <i class="fas fa-star me-2"></i> View Today's Special
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 fade-in">
+                <div class="gallery-img" style="background-image: url('https://pixabay.com/get/gce4faae38e01cdc23e2ebc87c11652a1fbbeffd52cd1cb1984d87268db3201eca9270a4c303194f2eb471574f3438bce8bd1d8bc6158f5946f84774dc7d81691_1280.jpg'); height: 300px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mb-5">
+        <h2 class="section-title text-center">What Our Customers Say</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="testimonial h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p>"The best Tunisian food I've had outside of Tunisia! The Couscous Royal is absolutely divine."</p>
+                    <p class="mb-0 text-muted">- Sophie M.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="testimonial h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p>"The flavors are so authentic! Reminds me of my trip to Tunisia. The staff is also very friendly and welcoming."</p>
+                    <p class="mb-0 text-muted">- David K.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="testimonial h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                    </div>
+                    <p>"Fresh ingredients, amazing flavors, and great service. Their Fricassée is a must-try! Will definitely come back."</p>
+                    <p class="mb-0 text-muted">- Maria L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center py-5 mb-5 fade-in" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/gb9f1e06749d0e4f8339a7cfa0dc83d0d90522f86023cd4bd7118b590bb5f221409274bfa9d3d4178d8cb3c45d743140aa913d10a6aefb44f3013f1b4488d7ad0_1280.jpg'); background-size: cover; background-position: center; border-radius: 10px;">
+        <h2 class="mb-4">Ready to experience authentic Tunisian flavors?</h2>
+        <p class="lead mb-4">Place your order online for pickup or delivery, or visit us in person!</p>
+        <a href="{{ url_for('order') }}" class="btn btn-primary btn-lg me-3 mb-3 mb-md-0">
+            <i class="fas fa-shopping-cart me-2"></i> Order Now
+        </a>
+        <a href="{{ url_for('menu') }}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-book-open me-2"></i> View Menu
+        </a>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}Place Your Order - Médina Saveurs{% endblock %}
+
+{% block content %}
+<!-- Order Banner -->
+<section class="py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://pixabay.com/get/g48480101e84236b9d18afe20f8e0bc08e4f8772b95b388a6f91ff957d059a1e13c79fedbd75a41b94bf55fb27b36bb674ff29a9ba39abca2cccd6e98dff277c3_1280.jpg'); background-size: cover; background-position: center;">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4 fade-in">Place Your Order</h1>
+        <p class="lead fade-in">Enjoy delicious Tunisian cuisine at home or for pickup</p>
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Order Form -->
+        <div class="col-lg-8 mb-5 mb-lg-0 fade-in">
+            <div class="card bg-dark">
+                <div class="card-header">
+                    <h3 class="mb-0"><i class="fas fa-shopping-cart me-2"></i> Your Order</h3>
+                </div>
+                <div class="card-body">
+                    <form id="orderForm" method="post" action="{{ url_for('order') }}">
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <div id="nameError" class="invalid-feedback" style="display: none;">
+                                    Please provide your name.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <div id="phoneError" class="invalid-feedback" style="display: none;">
+                                    Please provide your phone number.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="address" class="form-label">Delivery Address</label>
+                                <input type="text" class="form-control" id="address" name="address">
+                                <small class="text-muted">Leave empty for pickup</small>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-3">Select Items</h4>
+                        <div id="itemsError" class="alert alert-danger" style="display: none;">
+                            Please select at least one menu item.
+                        </div>
+
+                        <!-- Menu Categories -->
+                        <div class="accordion mb-4" id="menuAccordion">
+                            {% for category in menu.categories %}
+                            <div class="accordion-item bg-dark">
+                                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                                    <button class="accordion-button {% if not loop.first %}collapsed{% endif %} bg-dark text-light" type="button" 
+                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" 
+                                            aria-expanded="{{ 'true' if loop.first else 'false' }}" 
+                                            aria-controls="collapse{{ loop.index }}">
+                                        {{ category.name }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" 
+                                     aria-labelledby="heading{{ loop.index }}" data-bs-parent="#menuAccordion">
+                                    <div class="accordion-body">
+                                        {% for item in category.items %}
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="order_items" 
+                                                   id="item{{ category.name | lower }}{{ loop.index }}" 
+                                                   value="{{ item.name }}" data-price="{{ item.price }}">
+                                            <label class="form-check-label d-flex justify-content-between" for="item{{ category.name | lower }}{{ loop.index }}">
+                                                <div>
+                                                    <strong>{{ item.name }}</strong>
+                                                    <p class="mb-0 text-muted small">{{ item.description }}</p>
+                                                </div>
+                                                <span class="badge bg-warning text-dark">{{ item.price }} TND</span>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="notes" class="form-label">Special Instructions</label>
+                            <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Any allergies, special requests, or preferences?"></textarea>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Total: <span id="orderTotal" class="text-warning">0.00 TND</span></h4>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i> Submit Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Information -->
+        <div class="col-lg-4 fade-in">
+            <div class="card bg-dark mb-4">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-info-circle me-2"></i> Order Information</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Delivery Hours:</strong></p>
+                    <ul>
+                        <li>Monday - Friday: 11:30 - 21:30</li>
+                        <li>Saturday - Sunday: 12:30 - 22:30</li>
+                    </ul>
+                    <p><strong>Delivery Fee:</strong> 5 TND (Free for orders above 50 TND)</p>
+                    <p><strong>Estimated Delivery Time:</strong> 30-45 minutes</p>
+                    <hr>
+                    <p><strong>Pickup Hours:</strong></p>
+                    <ul>
+                        <li>Monday - Friday: 11:00 - 22:00</li>
+                        <li>Saturday - Sunday: 12:00 - 23:00</li>
+                    </ul>
+                    <p class="mb-0"><strong>Pickup Location:</strong> 123 Avenue Habib Bourguiba, Tunis</p>
+                </div>
+            </div>
+            
+            <div class="card bg-dark">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-phone me-2"></i> Need Help?</h4>
+                </div>
+                <div class="card-body">
+                    <p>If you have any questions or need assistance with your order, feel free to contact us:</p>
+                    <p><i class="fas fa-phone-alt me-2"></i> +216 71 123 456</p>
+                    <p class="mb-0"><i class="fas fa-envelope me-2"></i> info@medinasaveurs.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
